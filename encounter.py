@@ -49,4 +49,4 @@ while current_enemy.check_alive() == True:
         print("Invalid")
 
 print("Enemy died. Nice.")
-print("Peace.")
+print("Peace.!")
