@@ -2,7 +2,7 @@ import random
 import sys
 
 class Player:
-    def __init__(self, name, max_hp, hp, strength, spwr):
+    def __init__(self, name, max_hp, hp, mana, strength, spwr):
         self.name = name
         self.max_hp = max_hp
         self.hp = hp
@@ -25,16 +25,19 @@ class Enemy:
             return False
 
 pname = input("What is your name, Guy? ")
-player = Player(pname, 100, 100, 20, 10)
+player = Player(pname, 100, 100, 50, 20, 10)
 current_enemy = Enemy("Henchman", 200, 200, 10, 3, "Not a very powerful enemy.")
+
+heal_mana_cost = 20
+spell_mana_cost = 25
+player_base_attack = player.strength * .7
+player_best_attack = player.strength * 1.2
 
 while current_enemy.check_alive() == True:
     player_acted = False
     action = input("What would you like to do? ")
     action = action.lower()
     if action == "attack":
-        player_base_attack = player.strength * .7
-        player_best_attack = player.strength * 1.2
         crit = False
         player_attack_amount = random.randrange(player_base_attack, player_best_attack)
         player_acted = True
@@ -49,6 +52,8 @@ while current_enemy.check_alive() == True:
             print("Hot damn! A crit! You hit him for {}! He has {} left." .format(player_attack_amount, current_enemy.hp))
         else:
             print("You hit him for {}. He has {} hp left." .format(player_attack_amount, current_enemy.hp))
+    elif action == "cast":
+        print("cast")
     else:
         print("Invalid")
     if player_acted == True:
