@@ -1,4 +1,5 @@
 import map
+import numpy
 
 win = False
 while win == False:

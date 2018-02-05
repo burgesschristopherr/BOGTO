@@ -35,18 +35,23 @@ def display_status():
     print("    hp: {} / {} \n    mana: {} / {} \n    Str: {} \n    Armor: {} \n    Spell Power: {} \n" .format(player.hp, player.max_hp, player.mana, player.max_mana, player.strength, player.armor, player.spwr))
     print("\n{}:" .format(current_enemy.name))
     print("    hp: {} / {} \n    Note: {}    \n" .format(current_enemy.hp, current_enemy.max_hp, current_enemy.des))
+
+time.sleep(1)
 pname = input("What is your name, Guy? ")
+time.sleep(1)
+print("\n")
 player = Player(pname, 100, 100, 10, 50, 50, 20, 10)
 current_enemy = Enemy("Henchman", 200, 200, 5, 10, 3, "Not a very powerful enemy.")
 
 heal_mana_cost = 20
 spell_mana_cost = 25
-player_base_attack = player.strength * .7
-player_best_attack = player.strength * 1.2
+player_base_attack = player.strength * 30
+player_best_attack = player.strength * 40
 player_base_spell = player.spwr * 1
 player_best_spell = player. spwr * 2
 
 def fight():
+    print("A {} appeared! Holy Shit!" .format(current_enemy.name))
     while current_enemy.check_alive() == True:
         player_acted = False
         action = input("\nWhat would you like to do? ")
@@ -97,7 +102,7 @@ def fight():
         else:
             time.sleep(1)
             print("\nInvalid")
-        if player_acted == True:
+        if player_acted == True and current_enemy.check_alive() == True:
             time.sleep(2)
             print("\nAlright. It's his turn. He looks pretty pissed.")
             enemy_base_attack = current_enemy.strength * .5
@@ -110,10 +115,16 @@ def fight():
             player.hp -= enemy_attack_amount
             time.sleep(1)
             print("\nDamn. He got you good. {} damage, leaving you with {} hp." .format(enemy_attack_amount, player.hp))
+        else:
+            pass
         if player.hp <= 0:
             time.sleep(1)
             print("\nHe killed you. Sry.")
             sys.exit()
         else:
             pass
+    time.sleep(1)
     print("\nEnemy died. Nice.")
+    time.sleep(1)
+    print("Let's keep going!")
+    time.sleep(.5)
