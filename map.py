@@ -22,8 +22,7 @@ def slow_elipse(direction):
     time.sleep(1)
 
 def print_map():
-    x=0
-    y=0
+    x, y = 0
     while x < len(map):
         while y < len(map[0]):
             if map[x][y] == 1:
@@ -52,7 +51,7 @@ def move():
             encounter.current_enemy.hp = encounter.current_enemy.max_hp
             encounter.fight()
         else:
-            pass
+            print("Phew. You've been here before. Nothing to see.")
         pX -= 1
     elif action == "a" and pY > 0: # Changing player position +- 1
         slow_elipse("West")
@@ -60,7 +59,7 @@ def move():
             encounter.current_enemy.hp = encounter.current_enemy.max_hp
             encounter.fight()
         else:
-            pass
+            print("Phew. You've been here before. Nothing to see.")
         pY -= 1
     elif action == "s" and pX < 3: # Changing player position +- 1
         slow_elipse("South")
@@ -68,7 +67,7 @@ def move():
             encounter.current_enemy.hp = encounter.current_enemy.max_hp
             encounter.fight()
         else:
-            pass
+            print("Phew. You've been here before. Nothing to see.")
         pX += 1
     elif action == "d" and pY < 3: # Changing player position +- 1
         slow_elipse("East")
@@ -82,5 +81,3 @@ def move():
         print("Invalid Command. Try again.")
         move()
     map[pX][pY] = 1 #marking new square as P
-
-    print(numpy.mean(map-map[pX][pY]))
