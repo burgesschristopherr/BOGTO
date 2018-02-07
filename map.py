@@ -3,7 +3,7 @@ import sys
 import encounter
 import time
 
-map = numpy.zeros(shape=(4,4))
+map = numpy.zeros(shape=(2,2))
 map[0,0] = 1
 pX = 0
 pY = 0
@@ -22,7 +22,8 @@ def slow_elipse(direction):
     time.sleep(1)
 
 def print_map():
-    x, y = 0
+    x = 0
+    y = 0
     while x < len(map):
         while y < len(map[0]):
             if map[x][y] == 1:
@@ -36,8 +37,7 @@ def print_map():
         y = 0
         x += 1
 
-def check_square(x, y):
-    pass
+
 
 def move():
     global pX
