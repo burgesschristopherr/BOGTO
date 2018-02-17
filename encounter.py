@@ -36,8 +36,6 @@ def display_status():
     print("\n{}:" .format(current_enemy.name))
     print("    hp: {} / {} \n    Note: {}    \n" .format(current_enemy.hp, current_enemy.max_hp, current_enemy.des))
 
-
-
 time.sleep(1)
 pname = input("What is your name, Guy? ")
 time.sleep(1)
@@ -51,7 +49,6 @@ player_base_attack = player.strength * 30
 player_best_attack = player.strength * 40
 player_base_spell = player.spwr * 1
 player_best_spell = player. spwr * 2
-
 
 def fight():
     print("A {} appeared! Holy Shit!" .format(current_enemy.name))
